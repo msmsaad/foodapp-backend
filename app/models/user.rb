@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable, :trackable, :database_authenticatable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  has_one :cart
 end
