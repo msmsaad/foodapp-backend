@@ -48,6 +48,8 @@ group :development do
   # gem "spring"
 end
 
+gem "money-rails"
+gem "devise_token_auth"
 # linting
 gem "rubocop", require: false
 gem "rubocop-shopify", require: false
