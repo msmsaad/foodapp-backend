@@ -48,6 +48,7 @@ group :development do
   # gem "spring"
 end
 
+gem "money-rails"
 # linting
 gem "rubocop", require: false
 gem "rubocop-shopify", require: false
