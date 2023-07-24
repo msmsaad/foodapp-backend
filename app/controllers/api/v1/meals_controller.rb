@@ -6,15 +6,18 @@ module Api
       def index
         api_service = ::TheMealDbService.new
 
-        @meals = api_service.meals(category: params[:category])
+        @data = api_service.meals(category: params[:category])
 
-        # 1. paginate meals
+        @pagy, @meals = pagy_array(@data["meals"], page: params[:page] || 1)
 
         # 2. determine prices
 
         # 3. merge prices and other data
 
-        render json: @meals
+        render json: {
+          pagy: { current_page: @pagy.page, total_pages: @pagy.pages },
+          meals: @meals,
+        }
       end
     end
   end
