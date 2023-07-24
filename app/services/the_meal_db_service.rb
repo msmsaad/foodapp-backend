@@ -10,7 +10,16 @@ class TheMealDbService
 
     JSON.parse(response.body)
   rescue => e
-    Rails.logger.error "Error getting data from API: #{e.message}"
+    Rails.logger.error "Error getting data from Category API: #{e.message}"
+    []
+  end
+
+  def meals(category:)
+    response = ::HTTParty.get("#{@url}/filter.php?c=#{category}")
+
+    JSON.parse(response.body)
+  rescue => e
+    Rails.logger.error "Error getting data from Meal API: #{e.message}"
     []
   end
 end
