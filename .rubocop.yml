@@ -54,3 +54,5 @@ Layout/MultilineHashKeyLineBreaks:
   Enabled: false
 Layout/MultilineMethodArgumentLineBreaks:
   Enabled: false
+Style/Documentation:
+  Enabled: false
