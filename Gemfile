@@ -41,6 +41,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "byebug"
 end
 
 group :development do
@@ -51,6 +52,7 @@ end
 gem "money-rails"
 gem "devise_token_auth"
 gem "httparty"
+gem "pagy"
 # linting
 gem "rubocop", require: false
 gem "rubocop-shopify", require: false
