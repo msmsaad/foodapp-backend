@@ -46,3 +46,8 @@ group :development do
   # gem "spring"
 end
 
+# linting
+gem "rubocop", require: false
+gem "rubocop-shopify", require: false
+gem "rubocop-rails", require: false
+gem "rubocop-rspec", require: false
