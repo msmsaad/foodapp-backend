@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :categories, only: [:index]
       resources :meals, only: [:index]
-      resource :cart, controller: :cart, only: [:show, :update]
+      resource :cart, controller: :cart, only: [:show, :update] do
+        get :checkout
+      end
     end
   end
 end
