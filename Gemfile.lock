@@ -80,6 +80,7 @@ GEM
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -187,6 +188,8 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    redis-client (0.14.1)
+      connection_pool
     regexp_parser (2.8.1)
     reline (0.3.6)
       io-console (~> 0.5)
@@ -222,6 +225,12 @@ GEM
     rubocop-shopify (2.14.0)
       rubocop (~> 1.51)
     ruby-progressbar (1.13.0)
+    sidekiq (7.1.2)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
+    stripe (8.6.0)
     thor (1.2.2)
     timeout (0.4.0)
     tzinfo (2.0.6)
@@ -253,6 +262,8 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-shopify
+  sidekiq
+  stripe
   tzinfo-data
 
 RUBY VERSION
