@@ -8,15 +8,13 @@ module Api
 
         @data = api_service.meals(category: params[:category])
 
-        @pagy, @meals = pagy_array(@data["meals"], page: params[:page] || 1)
+        @pagy, @items = pagy_array(@data["meals"], page: params[:page] || 1)
 
-        # 2. determine prices
-
-        # 3. merge prices and other data
+        @items = ::MealPricingService.new(meals: @items, category: params[:page]).call
 
         render json: {
           pagy: { current_page: @pagy.page, total_pages: @pagy.pages },
-          meals: @meals,
+          meals: @items,
         }
       end
     end
