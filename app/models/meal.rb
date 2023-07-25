@@ -11,10 +11,6 @@ class Meal < ApplicationRecord
   private
 
   def create_product_and_price_on_stripe
-    # do this in the background job
-    product = Stripe::Product.create({ name: title, metadata: { meal_id: id } })
-    price = Stripe::Price.create({ unit_amount: price_cents, currency: "usd", product: product.id })
-
-    update(stripe_product_id: product.id, stripe_price_id: price.id)
+    MealStripeJob.perform_later(meal_id: id)
   end
 end
