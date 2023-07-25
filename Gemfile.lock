@@ -222,6 +222,7 @@ GEM
     rubocop-shopify (2.14.0)
       rubocop (~> 1.51)
     ruby-progressbar (1.13.0)
+    stripe (8.6.0)
     thor (1.2.2)
     timeout (0.4.0)
     tzinfo (2.0.6)
@@ -253,6 +254,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-shopify
+  stripe
   tzinfo-data
 
 RUBY VERSION
