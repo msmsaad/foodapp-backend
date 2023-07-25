@@ -53,6 +53,7 @@ gem "money-rails"
 gem "devise_token_auth"
 gem "httparty"
 gem "pagy"
+gem "active_model_serializers"
 # linting
 gem "rubocop", require: false
 gem "rubocop-shopify", require: false

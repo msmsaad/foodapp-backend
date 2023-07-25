@@ -14,7 +14,10 @@ class MealPricingService
         new_meal.price = get_price(category: category)
       end
 
-      meal.save unless meal.persisted?
+      meal.title = item["strMeal"]
+      meal.thumbnail = item["strMealThumb"]
+
+      meal.save if meal.changed?
 
       item["price"] = meal.price.to_f
     end
