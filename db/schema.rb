@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_195703) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_080349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_195703) do
     t.bigint "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "meal_id", null: false
+    t.index ["meal_id"], name: "index_ordered_meals_on_meal_id"
     t.index ["order_id"], name: "index_ordered_meals_on_order_id"
   end
 
@@ -56,6 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_195703) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_payment_id"
+    t.index ["stripe_payment_id"], name: "index_orders_on_stripe_payment_id", unique: true
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -86,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_195703) do
   add_foreign_key "carts", "users"
   add_foreign_key "carts_meals", "carts"
   add_foreign_key "carts_meals", "meals"
+  add_foreign_key "ordered_meals", "meals"
   add_foreign_key "ordered_meals", "orders"
   add_foreign_key "orders", "users"
 end
