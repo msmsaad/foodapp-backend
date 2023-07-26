@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       resource :cart, controller: :cart, only: [:show, :update] do
         get :checkout
       end
+
+      resource :webhooks, only: [] do
+        post :stripe
+      end
     end
   end
 end
