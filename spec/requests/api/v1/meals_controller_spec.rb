@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Api::V1::MealsController", type: :controller do
+RSpec.describe Api::V1::MealsController, type: :controller do
   let(:api_service) { instance_double(TheMealDbService) }
   let(:category) { "beef" }
   let(:meals) { JSON.parse(Rails.root.join("spec/fixtures/beef_meals.json").read) }
