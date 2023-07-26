@@ -5,6 +5,5 @@ class Order < ApplicationRecord
 
   has_many :ordered_meals, dependent: :destroy
 
-  validates :stripe_payment_id, presence: true
-  validates :stripe_payment_id, uniqueness: true
+  validates :stripe_payment_id, presence: true, uniqueness: true
 end
