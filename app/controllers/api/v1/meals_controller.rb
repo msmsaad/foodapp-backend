@@ -10,7 +10,7 @@ module Api
 
         @pagy, @items = pagy_array(@data["meals"], page: params[:page] || 1)
 
-        @items = ::MealPricingService.new(meals: @items, category: params[:page]).call
+        @items = ::MealPricingService.new(meals: @items, category: params[:category]).call
 
         render json: {
           pagy: { current_page: @pagy.page, total_pages: @pagy.pages },
